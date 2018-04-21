@@ -1,0 +1,73 @@
+{
+  "name": "asciidoctor-to-html",
+  "version": "0.0.1",
+  "author": "Maksim Kostromin <daggerok@gmail.com> (https://github.com/daggerok)",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf -rf ./dist",
+    "postclean": "mkdirp ./dist",
+    "prebuild": "yarn clean",
+    "build": "cross-env NODE_ENV=production webpack",
+    "preserve": "yarn build",
+    "serve": "serve -p 3000 ./dist",
+    "prestart": "yarn clean",
+    "start": "npm-run-all -p start:*",
+    "start:webpack": "cross-env NODE_ENV=development webpack --watch",
+    "start:livereload": "livereload",
+    "start:serve": "yarn serve",
+    "prepredeploy": "yarn -i",
+    "predeploy": "NODE_ENV=gh-pages npm-run-all predeploy:*",
+    "predeploy:rimraf": "rimraf dist",
+    "predeploy:eslint": "eslint app",
+    "predeploy:webpack": "webpack",
+    "predeploy:gh-pages-404": "ncp ./dist/index.html ./dist/404.html",
+    "predeploy:nojekyll": "touch ./dist/.nojekyll",
+    "deploy": "gh-pages -e ./ -d ./dist -s '{*.*,.*,*,**}' --branch gh-pages --dotfiles=true -m \"Github Pages $(date +%Y-%m-%d) deployment\"",
+    "postdeploy": "echo '(;'"
+  },
+  "livereload": {
+    "exclusions": [
+      "node_modules"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "9.6.6",
+    "@types/requirejs": "2.1.31",
+    "babel-preset-env": "1.6.1",
+    "base-href-webpack-plugin": "2.0.0",
+    "cross-env": "5.1.4",
+    "css-loader": "0.28.11",
+    "eslint": "4.19.1",
+    "gh-pages": "1.1.0",
+    "html-webpack-plugin": "3.2.0",
+    "livereload": "0.7.0",
+    "mkdirp": "0.5.1",
+    "ncp": "2.0.0",
+    "npm-run-all": "4.1.2",
+    "raw-loader": "0.5.1",
+    "rimraf": "2.6.2",
+    "serve": "6.5.5",
+    "style-loader": "0.21.0",
+    "webpack": "4.6.0",
+    "webpack-cli": "2.0.15"
+  },
+  "dependencies": {
+    "asciidoctor.js": "1.5.6",
+    "babel-polyfill": "6.26.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "keywords": [
+    "adoc",
+    "asciidoc",
+    "asciidoctor",
+    "asciidoctor.js",
+    "asciidoctor-to-html",
+    "asciidoctor-to-html-webpack",
+    "webpack"
+  ],
+  "homepage": "https://daggerok.github.io/asciidoctor-to-html"
+}
