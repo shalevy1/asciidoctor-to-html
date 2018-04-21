@@ -4,25 +4,27 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
+  parser: "babel-eslint",
   parserOptions: {
     sourceType: "module",
+    allowImportExportEverywhere: true,
   },
   rules: {
     indent: [
-      "warn",
+      'warn',
       2,
     ],
-    "linebreak-style": [
-      "warn",
-      "unix",
+    'linebreak-style': [
+      'warn',
+      'unix',
     ],
     quotes: [
-      "warn",
-      "single",
+      'warn',
+      'single',
     ],
     semi: [
-      "warn",
-      "always",
+      'warn',
+      'always',
     ],
   },
 };

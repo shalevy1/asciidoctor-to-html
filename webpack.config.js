@@ -1,18 +1,12 @@
 const { resolve, join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
-const publicPath = process.env.NODE_ENV === 'gh-pages' ? '/asciidoctor-blog/' : '/';
+const publicPath = process.env.NODE_ENV === 'gh-pages' ? '/asciidoctor-to-html/' : '/';
 
 process.env.NODE_ENV = publicPath.startsWith('dev') ? 'development' : 'production';
 
 module.exports = {
-  //entry: './app/web/main.js',
-  entry: {
-    'babel-polyfill': 'babel-polyfill',
-    asciidoctor: 'asciidoctor.js',
-    styles: './app/web/styles.js',
-    main: './app/web/main.js',
-  },
+  entry: './app/web/main.js',
   output: {
     path: resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',

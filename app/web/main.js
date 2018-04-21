@@ -1,3 +1,8 @@
+import 'babel-polyfill';
+
+import './styles.css';
+import 'asciidoctor.js/dist/css/asciidoctor.css';
+
 import adoc from '../adoc/test.adoc';
 
 (function main() {
@@ -5,14 +10,18 @@ import adoc from '../adoc/test.adoc';
 
   document.addEventListener('DOMContentLoaded', function bootstrap() {
 
-    const innerHtml = asciidoctor.convert(adoc);
+    import('./adoc').then(({ html }) => {
 
-    document.body.innerHTML = `<div>
-      ${innerHtml}
-    </div>`;
+      const innerHtml = html(adoc);
 
-    console.log(adoc);
-    console.log(innerHtml);
+      document.body.innerHTML = `<div>
+        ${innerHtml}
+      </div>`;
+
+      console.log(adoc);
+      console.log(innerHtml);
+
+    });
 
   }, false);
 

@@ -16,8 +16,8 @@
     "start:livereload": "livereload",
     "start:serve": "yarn serve",
     "prepredeploy": "yarn -i",
+    "postpredeploy": "yarn clean",
     "predeploy": "NODE_ENV=gh-pages npm-run-all predeploy:*",
-    "predeploy:rimraf": "rimraf dist",
     "predeploy:eslint": "eslint app",
     "predeploy:webpack": "webpack",
     "predeploy:gh-pages-404": "ncp ./dist/index.html ./dist/404.html",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/node": "9.6.6",
     "@types/requirejs": "2.1.31",
+    "babel-eslint": "8.2.3",
     "babel-preset-env": "1.6.1",
     "base-href-webpack-plugin": "2.0.0",
     "cross-env": "5.1.4",

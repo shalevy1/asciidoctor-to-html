@@ -9,3 +9,7 @@ yarn serve
 
 yarn deploy
 ----
+
+links:
+
+. link:https://github.com/asciidoctor/asciidoctor.js/blob/master//docs/manual.adoc[asciidoctor.js documentation]
