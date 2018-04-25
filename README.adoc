@@ -1,6 +1,6 @@
 = asciidoctor-to-html image:https://travis-ci.org/daggerok/asciidoctor-to-html.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/asciidoctor-to-html"]
 
-[sources,bash]
+[source,bash]
 ----
 yarn -i
 yarn start
